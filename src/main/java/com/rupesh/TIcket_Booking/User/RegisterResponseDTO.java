@@ -1,0 +1,12 @@
+package com.rupesh.TIcket_Booking.User;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class RegisterResponseDTO {
+
+    private String name;
+    private String email;
+}
