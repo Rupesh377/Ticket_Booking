@@ -8,5 +8,8 @@ import lombok.Data;
 public class LoginResponseDTO {
 
     private String jwt;
+
+    private String refreshToken;
+
     private Role role;
 }
