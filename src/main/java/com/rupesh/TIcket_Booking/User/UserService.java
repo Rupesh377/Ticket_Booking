@@ -1,9 +1,10 @@
 package com.rupesh.TIcket_Booking.User;
 
+import com.rupesh.TIcket_Booking.Exception.BadRequestException;
+import com.rupesh.TIcket_Booking.Exception.ResourceNotFoundException;
 import com.rupesh.TIcket_Booking.Security.JwtService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.BadRequestException;
 import org.jspecify.annotations.Nullable;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,10 +22,10 @@ public class UserService {
     public  LoginResponseDTO Login(@Valid LoginRequestDTO request) {
 
         User user=userRepository.findByEmail(request.getEmail())
-                .orElseThrow(()->new RuntimeException("User not found with this email"));
+                .orElseThrow(()->new ResourceNotFoundException("User not found with this email"));
 
         if(!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
-            throw new RuntimeException("Invalid password");
+            throw new BadRequestException("Invalid password");
         }
 
             String jwt= jwtService.generateToken(request.getEmail());
@@ -36,7 +37,7 @@ public class UserService {
     public  RegisterResponseDTO Register(@Valid RegisterDTO request) {
 
         if(userRepository.existsByEmail(request.getEmail()))
-                throw new RuntimeException("User already present with this gmail: "+request.getEmail());
+                throw new BadRequestException("User already present with this gmail: "+request.getEmail());
 
         UserDTO user= UserDTO.builder()
                 .name(request.getName())
