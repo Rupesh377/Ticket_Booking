@@ -40,9 +40,7 @@ public class UserService {
 //        }
 
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
-
             String jwt= jwtService.generateToken(user);
-
             return new LoginResponseDTO(jwt , refreshToken.getToken(), user.getRole());
 
     }
@@ -67,13 +65,8 @@ public class UserService {
 
     public RefreshTokenResponseDTO refreshToken(RefreshTokenDTO request) {
 
-        RefreshToken refreshToken =
-                refreshTokenService.verifyToken(
-                        request.getRefreshToken()
-                );
-
+        RefreshToken refreshToken = refreshTokenService.verifyToken(request.getRefreshToken());
         User user = refreshToken.getUser();
-
         String accessToken = jwtService.generateToken(user);
 
         return new RefreshTokenResponseDTO(accessToken);

@@ -25,6 +25,9 @@ public class TicketType {
 
     private Integer availableSeats;
 
+    @Version
+    private Long version;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "event_id")
     private Event event;
