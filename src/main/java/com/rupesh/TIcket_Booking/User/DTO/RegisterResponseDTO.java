@@ -1,4 +1,4 @@
-package com.rupesh.TIcket_Booking.User;
+package com.rupesh.TIcket_Booking.User.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

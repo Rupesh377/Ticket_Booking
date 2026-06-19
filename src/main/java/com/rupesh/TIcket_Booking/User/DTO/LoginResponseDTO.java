@@ -1,5 +1,6 @@
-package com.rupesh.TIcket_Booking.User;
+package com.rupesh.TIcket_Booking.User.DTO;
 
+import com.rupesh.TIcket_Booking.User.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

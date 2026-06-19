@@ -1,4 +1,4 @@
-package com.rupesh.TIcket_Booking.User;
+package com.rupesh.TIcket_Booking.User.DTO;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterDTO {
+public class LoginRequestDTO {
 
     @NotBlank(message = "Name is required")
     private String name;

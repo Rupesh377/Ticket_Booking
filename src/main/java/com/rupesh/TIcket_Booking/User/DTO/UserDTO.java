@@ -1,6 +1,6 @@
-package com.rupesh.TIcket_Booking.User;
+package com.rupesh.TIcket_Booking.User.DTO;
 
-import jakarta.persistence.*;
+import com.rupesh.TIcket_Booking.User.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
