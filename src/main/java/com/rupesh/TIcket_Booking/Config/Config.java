@@ -3,6 +3,7 @@ package com.rupesh.TIcket_Booking.Config;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -27,4 +28,6 @@ public class Config {
     public ModelMapper modelMapper(){
         return new ModelMapper();
     }
+
+
 }
